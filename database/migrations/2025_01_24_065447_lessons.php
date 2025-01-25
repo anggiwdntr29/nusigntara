@@ -16,7 +16,6 @@ return new class extends Migration
             $table->foreignId('id_alfabet')->constrained('alfabet')->onDelete('cascade');
             $table->text('text_indo');
             $table->text('text_eng');
-            $table->text('text_illustration');
             $table->text('image');
             $table->string('video_sibi');
             $table->string('video_bisindo');
