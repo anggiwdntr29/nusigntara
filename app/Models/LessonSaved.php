@@ -28,8 +28,8 @@ class LessonSaved extends Model
     }
 
     // Relasi dengan tabel Lessons
-    public function lesson()
+    public function lessons()
     {
-        return $this->belongsTo(Lesson::class, 'id_lessons'); // Relasi ke tabel lessons
+        return $this->belongsTo(Lessons::class, 'id_lessons'); // Relasi ke tabel lessons
     }
 }
