@@ -9,10 +9,10 @@ class Alfabet extends Model
 {
     use HasFactory;
 
-    protected $table = 'alfabet'; // Tentukan nama tabel jika berbeda dengan nama model
+    protected $table = 'alfabet'; 
 
     protected $fillable = [
-        'alfabet', // Kolom alfabet
+        'alfabet', 
     ];
 
     protected $hidden = [
@@ -20,9 +20,8 @@ class Alfabet extends Model
         'updated_at',
     ];
 
-    // Relasi dengan tabel Lessons
     public function lessons()
     {
-        return $this->hasMany(Lessons::class, 'id_alfabet'); // Relasi satu ke banyak
+        return $this->hasMany(Lessons::class, 'id_alfabet'); 
     }
 }

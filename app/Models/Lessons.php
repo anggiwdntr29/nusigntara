@@ -9,7 +9,7 @@ class Lessons extends Model
 {
     use HasFactory;
 
-    protected $table = 'lessons'; // Tentukan nama tabel jika berbeda dengan nama model
+    protected $table = 'lessons'; 
 
     protected $fillable = [
         'id_alfabet',
@@ -28,15 +28,13 @@ class Lessons extends Model
         'updated_at',
     ];
 
-    // Relasi dengan tabel Alfabet
     public function alfabet()
     {
-        return $this->belongsTo(Alfabet::class, 'id_alfabet'); // Relasi ke tabel alfabet
+        return $this->belongsTo(Alfabet::class, 'id_alfabet'); 
     }
 
-    // Relasi dengan tabel LessonsSaved
     public function lessonsSaved()
     {
-        return $this->hasMany(LessonSaved::class, 'id_lessons'); // Relasi satu ke banyak
+        return $this->hasMany(LessonSaved::class, 'id_lessons'); 
     }
 }

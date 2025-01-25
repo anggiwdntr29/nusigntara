@@ -13,7 +13,6 @@ class AuthController extends Controller
 {
     public function register(Request $request)
     {
-        // Validasi input
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
@@ -21,22 +20,18 @@ class AuthController extends Controller
             'confirm_password' => 'required|string|same:password|min:8',
         ]);
 
-        // Jika validasi gagal
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()], 400);
         }
         
-        // Buat user baru
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password), // Menggunakan Hash::make untuk password
+            'password' => Hash::make($request->password), 
         ]);
 
-        // Login pengguna dan mendapatkan token
         $token = auth('api')->login($user);
 
-        // Mengembalikan response dengan token
         return response()->json([
             'success' => 'user_registered',
             'message' => 'User successfully registered',
@@ -70,7 +65,6 @@ class AuthController extends Controller
     public function logout()
     {
         auth('api')->invalidate(true);
-        // auth('api')->logout();
         return response()->json([
           'success' => 'user_logout',
           'message' => 'Successfully logged out'

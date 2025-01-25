@@ -19,10 +19,10 @@ Route::middleware(['is_student'])->group(function () {
         Route::post('/me', [AuthController::class, 'me']);
     });
 
-    Route::get('/home', [HomeController::class, 'index']); // Page HOME
-    Route::get('/search', [HomeController::class, 'search']); //Save Lesson
-    Route::get('/filter', [HomeController::class, 'filter']);
-    Route::get('/detailLesson/{id}', [HomeController::class, 'detailLesson']);
-    Route::get('/mySaved', [HomeController::class, 'mySaved']);
-    Route::post('/saveLesson', [HomeController::class, 'saveLesson']); //Save Lesson
+    Route::get('/home', [HomeController::class, 'index']); // HOME
+    Route::get('/search', [HomeController::class, 'search']); //SEARCH
+    Route::get('/filter', [HomeController::class, 'filter']); //FILTER
+    Route::get('/detailLesson/{id}', [HomeController::class, 'detailLesson']); //DETAIL LESSONS
+    Route::get('/mySaved', [HomeController::class, 'mySaved']); //LIST SAVE
+    Route::post('/saveLesson', [HomeController::class, 'saveLesson']); //SAVE LESSONS
 });
